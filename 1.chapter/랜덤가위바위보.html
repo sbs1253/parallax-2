@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      h1 {
+        font-size: 100px;
+        font-weight: bold;
+      }
+      .starBtn {
+        font-size: 20px;
+        padding: 10px 20px;
+        cursor: pointer;
+      }
+    </style>
+    <script>
+      window.onload = () => {
+        const button = document.querySelector('button');
+        const h1 = document.querySelector('h1');
+        const hand = ['가위', '바위', '보'];
+        let random = 0;
+
+        button.addEventListener('click', () => {
+          random = hand[Math.floor(Math.random() * hand.length)];
+          h1.innerHTML = random;
+        });
+      };
+    </script>
+  </head>
+  <body>
+    <button class="starBtn" type="button">리셋</button>
+    <h1>가위</h1>
+  </body>
+</html>

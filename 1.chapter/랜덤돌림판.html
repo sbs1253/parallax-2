@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <style>
+    button {
+      font-size: 20px;
+      padding: 10px 20px;
+      cursor: pointer;
+    }
+    h1 {
+      font-size: 50px;
+    }
+    .arrowWrap {
+      width: 100%;
+      text-align: center;
+    }
+    img {
+      width: 200px;
+      height: auto;
+    }
+  </style>
+  <script>
+    window.onload = function () {
+      const reset = document.querySelector('.reset');
+      const start = document.querySelector('.start');
+      const arrowWrap = document.querySelector('.arrowWrap');
+      const h1 = document.querySelector('h1');
+      let btnDeg = 0;
+
+      reset.addEventListener('click', () => {
+        btnDeg = 0;
+        h1.innerHTML = `${btnDeg}deg`;
+        arrowWrap.style.cssText = `transition: all 0s ;transform: rotate(${btnDeg}deg)`;
+      });
+
+      start.addEventListener('click', () => {
+        btnDeg = Math.round(Math.random() * 720);
+        h1.innerHTML = `${btnDeg}deg`;
+        // arrowWrap.style.transform = `rotate(${btnDeg}deg)`;
+        arrowWrap.style.cssText = `transition: all 2s ease-in-out ;transform: rotate(${btnDeg}deg)`;
+      });
+    };
+  </script>
+  <body>
+    <button type="button" class="reset">리셋</button>
+    <button type="button" class="start">회전</button>
+    <h1>0deg</h1>
+    <div class="arrowWrap">
+      <img src="./image/up-arrow.svg" alt="arrow" class="arrow" />
+    </div>
+  </body>
+</html>

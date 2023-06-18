@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      body {
+        height: 100vh;
+        background: linear-gradient(120deg, #0272a4, #f6a564);
+      }
+      div {
+        position: relative;
+        top: 50%;
+        left: 50%;
+        background-color: aliceblue;
+        width: 300px;
+        height: 200px;
+        text-align: center;
+        padding: 20px;
+        transform: translate(-50%, -50%);
+      }
+      input {
+        padding: 10px 20px;
+        font-size: 16px;
+      }
+      button {
+        padding: 10px 20px;
+        font-size: 16px;
+      }
+    </style>
+    <script>
+      window.onload = function () {
+        const input = document.getElementsByTagName('input')[0];
+        const p = document.querySelector('p');
+        const startBtn = document.querySelector('button');
+
+        let random = ['업', '다운', '정답'];
+        let randomNum = resetNum(50);
+
+        startBtn.addEventListener('click', () => {
+          let inputVal = input.value;
+
+          if (inputVal < randomNum) {
+            p.innerHTML = random[0];
+          } else if (inputVal > randomNum) {
+            p.innerHTML = random[1];
+          } else {
+            p.innerHTML = random[2];
+            setTimeout(() => {
+              resetfuc();
+            }, 5000);
+          }
+        });
+
+        function resetfuc() {
+          inputVal = 1;
+          p.innerHTML = '다시 시작';
+          randomNum = resetNum(50);
+        }
+
+        function resetNum(num) {
+          return Math.round(Math.random() * num);
+        }
+      };
+    </script>
+  </head>
+  <body>
+    <div>
+      <h1>업다운 게임</h1>
+      <p>1~10까지</p>
+      <input type="number" name="num" value="1" />
+      <button>정답</button>
+    </div>
+  </body>
+</html>
