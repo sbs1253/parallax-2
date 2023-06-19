@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      body {
+        transition: all 2.5s cubic-bezier(0.075, 0.82, 0.165, 1);
+        overflow-x: hidden;
+      }
+      .navi {
+        position: fixed;
+        left: 50%;
+        top: 46%;
+        transform: translate(-50%, -50%);
+      }
+      h1 {
+        font-size: 30px;
+        font-weight: bold;
+        text-align: center;
+      }
+      button {
+        font-size: 20px;
+        padding: 10px 30px;
+        cursor: pointer;
+      }
+
+      section {
+        height: 100vh;
+        width: 100vw;
+        border-top: 2px dashed rgba(0, 0, 0, 0.5);
+      }
+    </style>
+    <script>
+      window.onload = function () {
+        let prevBtn = document.querySelector('.prevBtn');
+        let nextBtn = document.querySelector('.nextBtn');
+        let h1 = document.getElementsByTagName('h1')[0];
+        let bgColorArr = ['#85FFBD', '#FFFB7D', '#E0C3FC', '#00DBDE'];
+        let section = document.getElementsByTagName('section');
+        let pageNum = 0;
+        let totalNum = section.length;
+
+        let scroll = 0;
+
+        function pageChangeFunc() {
+          h1.innerHTML = pageNum + 1 + ' 페이지 입니다.';
+          document.getElementsByTagName('body')[0].style.background =
+            bgColorArr[pageNum];
+
+          // window.scrollTo(0 , section[pageNum].offsetTop );
+          //   window.scrollTo({
+          //     top: section[pageNum].offsetTop,
+          //     behavior: 'smooth',
+          //   });
+        }
+
+        pageChangeFunc();
+
+        prevBtn.addEventListener('click', function () {
+          if (pageNum > 0) {
+            pageNum--;
+          }
+          pageChangeFunc();
+        });
+        nextBtn.addEventListener('click', function () {
+          if (pageNum < totalNum - 1) {
+            pageNum++;
+          }
+          pageChangeFunc();
+        });
+
+        window.addEventListener('scroll', function (event) {
+          scroll = this.scrollY;
+
+          // if (scroll < section[1].offsetTop) {
+          //   pageNum = 0;
+          // }
+          // if (scroll > section[1].offsetTop) {
+          //   pageNum = 1;
+          // }
+          // if (scroll > section[2].offsetTop) {
+          //   pageNum = 2;
+          // }
+          // if (scroll > section[3].offsetTop) {
+          //   pageNum = 3;
+          // }
+          // pageChangeFunc();
+
+          for (var i = 0; i < totalNum; i++) {
+            if (
+              scroll > section[i].offsetTop &&
+              scroll < section[i].offsetTop + section[i].offsetHeight
+            ) {
+              pageNum = i;
+              console.log(pageNum);
+              break;
+            }
+          }
+          pageChangeFunc();
+        });
+      };
+    </script>
+  </head>
+  <body>
+    <div class="navi">
+      <button type="button" class="prevBtn">PREV</button>
+      <button type="button" class="nextBtn">NEXT</button>
+      <h1></h1>
+    </div>
+
+    <section>
+      <h2>page 1</h2>
+    </section>
+
+    <section>
+      <h2>page 2</h2>
+    </section>
+
+    <section>
+      <h2>page 3</h2>
+    </section>
+
+    <section>
+      <h2>page 4</h2>
+    </section>
+  </body>
+</html>
