@@ -9,15 +9,17 @@
     body {
       margin: 0;
       padding: 0;
-      width: 100vw;
-      height: 100vh;
+      overflow-x: hidden;
+      background-color: black;
     }
     section {
+      padding-top: 150px;
+      border-top: 1px dotted white;
       position: relative;
-      background-color: black;
-      width: 100%;
-      height: 100%;
+      width: 100vw;
+      height: 100vh;
       color: whitesmoke;
+      overflow: hidden;
     }
     h1 {
       position: relative;
@@ -33,31 +35,55 @@
       margin: 0;
     }
     .image {
-      position: absolute;
+      position: fixed;
       width: 70%;
-      top: -5%;
+      top: 25%;
       right: -15%;
+      opacity: 0;
+      transition: opacity 2s linear;
+    }
+    section.active .image {
+      opacity: 1;
     }
   </style>
   <script>
+    /* const section = document.querySelector('#first');
+    1. element.addEventListener하려고 했음
+    2. section에 scroll이벤트 작동안함
+    3. 원인: section에 스크롤 영역을 따로 만들어야함 === 스크롤 이벤트 발생시키고자하는 위치에 px로 영역 만들어야 한다는것임
+    4. 해결: css에 overflow: scroll + section에 스크롤 생기게 높이 px로 잡아줌
+    */
     window.onload = function () {
-      /* const section = document.querySelector('#first');
-      1. element.addEventListener하려고 했음
-      2. section에 scroll이벤트 작동안함
-      3. 원인: section에 스크롤 영역을 따로 만들어야함 === 스크롤 이벤트 발생시키고자하는 위치에 px로 영역 만들어야 한다는것임
-      4. 해결: css에 overflow: scroll + section에 스크롤 생기게 높이 px로 잡아줌 
-      */
       const section = document.querySelectorAll('section');
-      const body = document.querySelector('body');
+      const total = section.length;
+      pageNum = 0;
       let scroll;
 
+      function imgReset() {
+        for (let i = 0; i < total; i++) {
+          section[i].classList.remove('active');
+        }
+        // console.log(pageNum);
+        section[pageNum].classList.add('active');
+      }
+
       window.addEventListener('scroll', (event) => {
-        console.log(section);
-        // scroll = this.scrollY;
-        y = section.scrollTop;
-        console.log(document.documentElement.scrollTop);
-        // for (let i = 0; i < section.length; i++) {
-        // }
+        scroll = this.scrollY;
+
+        for (let i = 0; i < total; i++) {
+          if (
+            scroll > section[i].offsetTop - window.innerHeight / 2 &&
+            scroll <
+              section[i].offsetTop +
+                section[i].clientHeight -
+                window.innerHeight / 2
+          ) {
+            pageNum = i;
+            break;
+          }
+          imgReset();
+        }
+        imgReset();
       });
     };
   </script>
@@ -86,16 +112,6 @@
     <section>
       <div class="innerWrap" id="onesl">
         <h2>page 2</h2>
-        <p>
-          한 사람들의 멀리 추억과 까닭입니다. 그리워 이름자 별 위에 이런 당신은
-          별들을 까닭입니다. 밤이 다 차 파란 시와 버리었습니다. 속의 못 별에도
-          별들을 멀리 릴케 봅니다. 하늘에는 소녀들의 이름자 것은 속의 나의
-          까닭이요, 듯합니다. 패, 이름을 이름자 보고, 별 비둘기, 언덕 마디씩
-          가득 봅니다. 프랑시스 계절이 많은 하나에 이런 까닭이요, 까닭입니다.
-          이국 옥 부끄러운 나는 하나의 겨울이 이름과, 피어나듯이 멀듯이,
-          까닭입니다. 부끄러운 시인의 차 이네들은 새워 무성할 하나에 나는
-          있습니다. 사랑과 못 나는 차 이국 까닭입니다.
-        </p>
         <p>
           한 사람들의 멀리 추억과 까닭입니다. 그리워 이름자 별 위에 이런 당신은
           별들을 까닭입니다. 밤이 다 차 파란 시와 버리었습니다. 속의 못 별에도
