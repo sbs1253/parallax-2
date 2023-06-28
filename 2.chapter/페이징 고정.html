@@ -9,36 +9,70 @@
     body {
       margin: 0;
       padding: 0;
-      width: 100vw;
-      height: 100vh;
+      background-color: black;
+      overflow-x: hidden;
     }
     section {
       position: relative;
-      background-color: black;
-      width: 100%;
-      height: 100%;
+      width: 100vw;
+      height: 100vh;
       color: whitesmoke;
+      border-top: 1px dotted white;
     }
+    section .innerWrap {
+      position: relative;
+      margin-left: 10%;
+      width: 50%;
+      top: 35%;
+    }
+    section .image {
+      position: absolute;
+      width: 70%;
+      top: 25%;
+      right: -15%;
+      opacity: 0;
+      transition: opacity 2s linear;
+    }
+    section .image.active {
+      opacity: 1;
+    }
+
     h1 {
       position: relative;
       text-align: center;
       top: 40%;
       font-size: 50px;
     }
-    .innerWrap {
-      margin-left: 10%;
-      width: 50%;
-    }
     h2 {
       margin: 0;
     }
-    .image {
-      position: absolute;
-      width: 70%;
-      top: -5%;
-      right: -15%;
-    }
   </style>
+  <script>
+    window.onload = function () {
+      // const section = document.getElementsByTagName('section');
+      const section = document.querySelector('section');
+      const img = document.getElementsByClassName('image');
+      let scroll = 0;
+
+      section.addEventListener('scroll', () => {
+        console.log(section.scrollTop);
+      });
+
+      // window.addEventListener('scroll', function () {
+      //   scroll = this.scrollY;
+      //   for (let i = 0; i < section.length - 1; i++) {
+      //     if (
+      //       scroll > section[i].offsetTop &&
+      //       scroll < section[i].offsetTop + section[i].clientHeight
+      //     ) {
+      //       img[i].classList.add('active');
+      //       console.log(i);
+      //       break;
+      //     }
+      //   }
+      // });
+    };
+  </script>
   <body>
     <section>
       <h1>페이지 타이틀</h1>
