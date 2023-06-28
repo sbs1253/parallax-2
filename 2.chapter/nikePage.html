@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+    body {
+      overflow-x: hidden;
+      background-color: #e8e19b;
+    }
+
+    section {
+      position: relative;
+      width: 100vw;
+      height: 100vh;
+    }
+    section.active img {
+      opacity: 1;
+    }
+    section img {
+      position: fixed;
+      width: 500px;
+      height: 500px;
+      top: 20%;
+      right: 10%;
+      opacity: 0;
+      transition: all 0.5s linear;
+    }
+    section .innerWrap {
+      position: relative;
+      top: 50%;
+      left: 20%;
+    }
+    h1 {
+      position: absolute;
+      font-size: 60px;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+    ul {
+      position: fixed;
+      top: 40%;
+      right: 3%;
+      color: white;
+      font-size: 20px;
+      z-index: 100;
+      cursor: pointer;
+    }
+    li.active {
+      transition: all 0.5s linear;
+      color: black;
+    }
+  </style>
+
+  <script>
+    window.onload = function () {
+      const section = document.querySelectorAll('section');
+      const pageWrap = document.querySelectorAll('li');
+      let pageNum = 0;
+      let sectionNum = section.length;
+      function pageReset() {
+        for (let i = 0; i < sectionNum; i++) {
+          section[i].classList.remove('active');
+          pageWrap[i].classList.remove('active');
+        }
+        section[pageNum].classList.add('active');
+        pageWrap[pageNum].classList.add('active');
+      }
+
+      for (let i = 0; i < sectionNum; i++) {
+        pageWrap[i].addEventListener('click', function () {
+          // console.log('click :' + i);
+          // pageNum = i; 이거 넣으면 누른순간 버튼 색이 바뀜
+          window.scrollTo({
+            top: section[i].offsetTop,
+            behavior: 'smooth',
+          });
+          pageReset();
+        });
+        // pageWrap[i].onClick = function () {
+        //   console.log(i);
+        //   window.scrollTop({
+        //     top: section[i].offsetTop,
+        //     behavior: 'smooth',
+        //   });
+        // };
+      }
+
+      window.addEventListener('scroll', function (e) {
+        scroll = window.scrollY;
+        for (let i = 0; i < sectionNum; i++) {
+          if (
+            scroll > section[i].offsetTop - window.outerHeight / 1.5 &&
+            scroll <
+              section[i].offsetTop -
+                window.outerHeight / 1.5 +
+                section[i].offsetHeight
+          ) {
+            pageNum = i;
+            console.log('window: ' + i);
+            pageReset();
+            break;
+          }
+        }
+      });
+
+      pageReset();
+    };
+  </script>
+  <body>
+    <ul>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+    </ul>
+    <section><h1>Nike 스케치</h1></section>
+    <section>
+      <div class="innerWrap">
+        <h2>page1</h2>
+        <p>스케치</p>
+      </div>
+      <img src="./image/pic_1.jpg" alt="shoes" />
+    </section>
+    <section>
+      <div class="innerWrap">
+        <h2>page2</h2>
+        <p>선 정리</p>
+      </div>
+      <img src="./image/pic_2.jpg" alt="shoes" />
+    </section>
+    <section>
+      <div class="innerWrap">
+        <h2>page3</h2>
+        <p>컬러</p>
+      </div>
+      <img src="./image/pic_3.jpg" alt="shoes" />
+    </section>
+    <section>
+      <div class="innerWrap">
+        <h2>page4</h2>
+        <p>블랙컬러</p>
+      </div>
+      <img src="./image/pic_4.jpg" alt="shoes" />
+    </section>
+    <section>
+      <div class="innerWrap">
+        <h2>page5</h2>
+        <p>포인트 컬러</p>
+      </div>
+      <img src="./image/pic_5.jpg" alt="shoes" />
+    </section>
+    <section>
+      <div class="innerWrap">
+        <h2>page6</h2>
+        <p>마무리</p>
+      </div>
+      <img src="./image/pic_6.jpg" alt="shoes" />
+    </section>
+    <section>
+      <div class="innerWrap">
+        <h2>page 4</h2>
+        <p>스티치를 넣으면 끝</p>
+      </div>
+      <img src="./image/pic_7.jpg" class="image" alt="shoes" />
+    </section>
+  </body>
+</html>

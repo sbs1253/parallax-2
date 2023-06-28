@@ -11,8 +11,6 @@
       padding: 0;
       background-color: black;
       overflow-x: hidden;
-      overflow-x: hidden;
-      background-color: black;
     }
     section {
       padding-top: 150px;
@@ -20,10 +18,7 @@
       position: relative;
       width: 100vw;
       height: 100vh;
-      width: 100vw;
-      height: 100vh;
       color: whitesmoke;
-      border-top: 1px dotted white;
     }
     section .innerWrap {
       position: relative;
@@ -65,32 +60,7 @@
       opacity: 1;
     }
   </style>
-  <script>
-    window.onload = function () {
-      // const section = document.getElementsByTagName('section');
-      const section = document.querySelector('section');
-      const img = document.getElementsByClassName('image');
-      let scroll = 0;
 
-      section.addEventListener('scroll', () => {
-        console.log(section.scrollTop);
-      });
-
-      // window.addEventListener('scroll', function () {
-      //   scroll = this.scrollY;
-      //   for (let i = 0; i < section.length - 1; i++) {
-      //     if (
-      //       scroll > section[i].offsetTop &&
-      //       scroll < section[i].offsetTop + section[i].clientHeight
-      //     ) {
-      //       img[i].classList.add('active');
-      //       console.log(i);
-      //       break;
-      //     }
-      //   }
-      // });
-    };
-  </script>
   <script>
     /* const section = document.querySelector('#first');
     1. element.addEventListener하려고 했음
