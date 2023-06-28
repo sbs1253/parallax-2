@@ -65,6 +65,7 @@
         //스크롤 이벤트
         window.addEventListener('scroll', function (event) {
           var scroll = this.scrollY;
+
           for (var i = 0; i < totalNum; i++) {
             if (
               scroll > section[i].offsetTop - window.outerHeight / 1.5 &&
