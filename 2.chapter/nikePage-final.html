@@ -16,24 +16,40 @@
       }
       section .innerWrap {
         position: relative;
-        width: 300px;
+        width: 400px;
+        padding: 40px;
+        margin: 10px;
         top: 20%;
         left: 10%;
+        background-color: rgba(255, 255, 255, 0.5);
+        z-index: 10;
       }
       section .imageWrap {
-        position: relative;
-        right: -40%;
-        /* div 박스임으로 -40%이 맞는것 */
+        position: fixed;
+        top: 20%;
+        right: 10%;
       }
-      section .imageWrap img:nth-child(1) {
+      section .imageWrap img {
+        position: relative;
+        width: 400px;
+        height: 300px;
+        opacity: 0;
         transform: translate(-100px, -100px) rotate(-20deg);
+        transition: all 0.8s linear;
+        z-index: 5;
       }
       section .imageWrap img:nth-child(2) {
         transform: translate(100px, 100px) rotate(20deg);
+        z-index: 1;
       }
-      section .imageWrap img {
-        width: 300px;
-        height: 200px;
+      section.active .imageWrap img {
+        opacity: 1;
+        transform: translate(0, 0);
+        transition: all 0.5s linear;
+      }
+      section.active .imageWrap img:nth-child(2) {
+        transition-delay: 0.5s;
+        transform: translate(-30px, 150px);
       }
       h1 {
         font-size: 50px;
@@ -49,17 +65,41 @@
         const page = section.length;
         let scroll;
         let pageNum = 0;
+
+        function pageScroll() {
+          for (let i = 0; i < page; i++) {
+            section[i].classList.remove('active');
+          }
+          section[pageNum].classList.add('active');
+        }
         window.addEventListener('scroll', function () {
           scroll = window.scrollY;
+          // scrollTop이 section에서 0뜨는 이유는 section에는 스크롤바가 안생겼기때문임
           for (let i = 0; i < page; i++) {
             if (
-              scroll > section[i].scrollTop &&
-              scroll < section[i].scrollTop + section[i].scrollHeight
+              i == 0 &&
+              scroll > section[i].offsetTop - window.innerHeight / 4 &&
+              scroll <
+                section[i].offsetTop +
+                  section[i].clientHeight -
+                  window.innerHeight / 4
             ) {
-              console.log('scroll');
+              pageNum = i;
+              pageScroll();
+              break;
+            } else if (
+              scroll > section[i].offsetTop - window.innerHeight / 3 &&
+              scroll <
+                section[i].offsetTop +
+                  section[i].clientHeight -
+                  window.innerHeight / 3
+            ) {
+              pageNum = i;
+              pageScroll();
+              break;
             }
           }
-          // console.log(scroll);
+          pageScroll();
         });
       };
     </script>
