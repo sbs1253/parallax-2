@@ -18,22 +18,57 @@
         position: relative;
         width: 300px;
         top: 20%;
-        left: 20%;
+        left: 10%;
       }
-      /* section .imageWrap {
-        width: 300px;
-        height: 200px;
-      } */
+      section .imageWrap {
+        position: relative;
+        right: -40%;
+        /* div 박스임으로 -40%이 맞는것 */
+      }
+      section .imageWrap img:nth-child(1) {
+        transform: translate(-100px, -100px) rotate(-20deg);
+      }
+      section .imageWrap img:nth-child(2) {
+        transform: translate(100px, 100px) rotate(20deg);
+      }
       section .imageWrap img {
         width: 300px;
         height: 200px;
       }
+      h1 {
+        font-size: 50px;
+        position: relative;
+        text-align: center;
+        top: 50%;
+      }
     </style>
+
+    <script>
+      window.onload = function () {
+        const section = document.querySelectorAll('section');
+        const page = section.length;
+        let scroll;
+        let pageNum = 0;
+        window.addEventListener('scroll', function () {
+          scroll = window.scrollY;
+          for (let i = 0; i < page; i++) {
+            if (
+              scroll > section[i].scrollTop &&
+              scroll < section[i].scrollTop + section[i].scrollHeight
+            ) {
+              console.log('scroll');
+            }
+          }
+          // console.log(scroll);
+        });
+      };
+    </script>
   </head>
   <body>
     <section>
       <h1>Nike store</h1>
     </section>
+
     <section>
       <div class="innerWrap">
         <h2>블레이저 미드 '77 빈티지</h2>
@@ -48,6 +83,7 @@
         <img src="./image/nike_1_2.JPG" alt="shoes" />
       </div>
     </section>
+
     <section>
       <div class="innerWrap">
         <h2>에어맥스 95</h2>
@@ -65,6 +101,7 @@
         <img src="./image/nike_2_2.JPG" alt="shoes" />
       </div>
     </section>
+
     <section>
       <div class="innerWrap">
         <h2>리액트 비전 3M</h2>
