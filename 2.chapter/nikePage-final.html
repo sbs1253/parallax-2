@@ -57,11 +57,25 @@
         text-align: center;
         top: 50%;
       }
+      ul.listWrap {
+        font-size: 30px;
+        color: rgb(213, 222, 236);
+        position: fixed;
+        top: 40%;
+        left: 98%;
+        cursor: pointer;
+        z-index: 100;
+      }
+      li.active {
+        color: green;
+        transition: all 0.5s linear;
+      }
     </style>
 
     <script>
       window.onload = function () {
         const section = document.querySelectorAll('section');
+        const list = document.querySelectorAll('li');
         const page = section.length;
         let scroll;
         let pageNum = 0;
@@ -69,8 +83,21 @@
         function pageScroll() {
           for (let i = 0; i < page; i++) {
             section[i].classList.remove('active');
+            list[i].classList.remove('active');
           }
+          list[pageNum].classList.add('active');
           section[pageNum].classList.add('active');
+        }
+        for (let i = 0; i < page; i++) {
+          // console.log('1'); 함수가 미리 반복문에 의해 만들어짐
+          list[i].onclick = function () {
+            /* pageNum = i; 
+            pageScroll(); 이부분때문에 깜빡이고 시작함*/
+            window.scrollTo({
+              top: section[i].offsetTop,
+              behavior: 'smooth',
+            });
+          };
         }
         window.addEventListener('scroll', function () {
           scroll = window.scrollY;
@@ -105,7 +132,12 @@
     </script>
   </head>
   <body>
-    <ul></ul>
+    <ul class="listWrap">
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+    </ul>
 
     <section>
       <h1>Nike store</h1>
