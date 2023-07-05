@@ -1,15 +1,85 @@
-$color: red;
+body {
+  overflow: hidden;
+}
+div.main {
+  // background: linear-gradient(150deg, #5d4b73, #f2f1d1);
+  // width: 100vw;
+  // height: 100vh;
+  section {
+    position: absolute;
 
-h1 {
-  color: $color;
+    &.postWrap.hide {
+      display: none;
+    }
+    &.pageWrap {
+      background: linear-gradient(150deg, #5d4b73, #f2f1d1);
+      width: 100vw;
+      height: 100vh;
+
+      & .cdWrap {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(0%, -50%);
+        background: linear-gradient(#5d4b73, #77658e);
+        width: 250px;
+        height: 250px;
+        border-radius: 50%;
+        z-index: 1;
+        // animation: move 1s infinite reverse;
+
+        div {
+          position: relative;
+          top: 25%;
+          left: 25%;
+          background-color: #f2f1d1;
+          width: 125px;
+          height: 125px;
+          border-radius: 50%;
+        }
+      }
+
+      & .postWrap {
+        top: 50%;
+        left: 50%;
+        position: relative;
+        z-index: 10;
+        img {
+          transform: translate(-50%, -50%);
+          width: 300px;
+          height: 300px;
+        }
+      }
+      &:hover {
+        .cdWrap {
+          transition: all 0.1s linear;
+          transform: translate(30px, -50%);
+        }
+        .postWrap {
+          transition: all 0.1s linear;
+          transform: translate(-30px, 0);
+        }
+      }
+    }
+    &.btn {
+      width: 100%;
+      bottom: 10%;
+      display: flex;
+      justify-content: center;
+      button {
+        background-color: rgb(125 172 173 / 30%);
+        padding: 10px 20px;
+        margin: 0px 10px;
+        border-radius: 10%;
+      }
+    }
+  }
 }
-p {
-  color: $color;
-}
-.bg {
-  background-color: $color;
-}
-h2 {
-  color: $color;
-  border: 1px;
-}
+// @keyframes move {
+//   0% {
+//     background: linear-gradient(90deg, #5d4b73, #77658e);
+//   }
+//   100% {
+//     background: linear-gradient(180deg, #77658e, #5d4b73);
+//   }
+// }
