@@ -60,6 +60,18 @@ div.main {
       bottom: 10%;
       display: flex;
       justify-content: center;
+      & ul {
+        display: flex;
+        width: 100px;
+        justify-content: center;
+        li {
+          padding: 10px;
+          color: rgba($color: #000000, $alpha: 0.4);
+        }
+        li.hide {
+          color: rgba($color: #000000, $alpha: 1);
+        }
+      }
       button {
         background-color: rgb(125 172 173 / 30%);
         padding: 10px 20px;

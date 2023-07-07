@@ -56,6 +56,18 @@ div.main section.btn {
   display: flex;
   justify-content: center;
 }
+div.main section.btn ul {
+  display: flex;
+  width: 100px;
+  justify-content: center;
+}
+div.main section.btn ul li {
+  padding: 10px;
+  color: rgba(0, 0, 0, 0.4);
+}
+div.main section.btn ul li.hide {
+  color: black;
+}
 div.main section.btn button {
   background-color: rgba(125, 172, 173, 0.3);
   padding: 10px 20px;
