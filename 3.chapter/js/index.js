@@ -59,6 +59,8 @@ window.onload = () => {
     }
     pageChangeFunc();
   });
+
+  // list 클릭시 페이지 바뀌는 함수
   for (let i = 0; i < pointBtnAll.length; i++) {
     // console.log(i);
     ((idx) => {
