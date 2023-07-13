@@ -26,6 +26,13 @@ body {
   opacity: 0;
   transition: all 0.4s ease-in-out;
 }
+@media only screen and (max-width:720px) {
+  .contentWrap .album {
+    top: 40%;
+    width: 300px;
+    height: 200px;
+  }
+}
 .contentWrap .album.active {
   visibility: visible;
   opacity: 1;
@@ -34,6 +41,15 @@ body {
 .contentWrap .album.active .disk {
   left: 180px;
   transition-delay: 0.5s;
+}
+@media only screen and (max-width:720px) {
+  .contentWrap .album.active {
+    left: 45%;
+  }
+  .contentWrap .album.active .disk {
+    left: 35%;
+    transition-delay: 0.5s;
+  }
 }
 .contentWrap .album .coverImg {
   position: absolute;
@@ -44,6 +60,12 @@ body {
 .contentWrap .album .coverImg img {
   width: inherit !important;
   height: inherit !important;
+}
+@media only screen and (max-width:720px) {
+  .contentWrap .album .coverImg {
+    width: 250px;
+    height: 250px;
+  }
 }
 .contentWrap .album .disk {
   position: absolute;
@@ -57,6 +79,12 @@ body {
   transition: left 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
   animation: rotateAni 10s ease infinite;
 }
+@media only screen and (max-width:720px) {
+  .contentWrap .album .disk {
+    width: 244px;
+    height: 244px;
+  }
+}
 .contentWrap .album .disk .disk_inner {
   position: absolute;
   top: 50%;
@@ -67,6 +95,12 @@ body {
   width: 160px;
   height: 160px;
   border: 3px dashed rgba(0, 0, 0, 0.4);
+}
+@media only screen and (max-width:720px) {
+  .contentWrap .album .disk .disk_inner {
+    width: 100px;
+    height: 100px;
+  }
 }
 .contentWrap .album .disk .disk_inner::after {
   position: absolute;
