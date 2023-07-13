@@ -18,13 +18,14 @@ window.onload = () => {
   bgArray[0] = ['#0272a4', '#f6a564'];
   bgArray[1] = ['#b6bfc8', '#36595b'];
   bgArray[2] = ['#e58e82', '#6f569f'];
-  function color() {
-    gradientWrap.style.opacity = 1;
-  }
+
   function pageChangeFunc() {
     gradientWrap.style.cssText = `background:linear-gradient(120deg, ${bgArray[pageNum][0]}, ${bgArray[pageNum][1]});
-    opacity : 0`;
-    color();
+    opacity : 0.5`;
+    setTimeout(() => {
+      gradientWrap.style.opacity = 1;
+    }, 300);
+    // 배경색 바꾸는코드는 시간지연함수로 가능
 
     // contentWrap.style.background =
     //   'linear-gradient(120deg,' +
