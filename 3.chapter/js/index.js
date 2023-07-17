@@ -7,7 +7,7 @@
 window.onload = () => {
   let prevButton = document.querySelectorAll('button')[0];
   let nextButton = document.querySelectorAll('button')[1];
-  let contentWrap = document.querySelector('.contentWrap');
+  // let contentWrap = document.querySelector('.contentWrap');
   let gradientWrap = document.querySelector('.gradientWrap');
   let diskInner = document.querySelectorAll('.disk_inner');
   let album = document.querySelectorAll('.album');
@@ -18,6 +18,26 @@ window.onload = () => {
   bgArray[0] = ['#0272a4', '#f6a564'];
   bgArray[1] = ['#b6bfc8', '#36595b'];
   bgArray[2] = ['#e58e82', '#6f569f'];
+
+  function mibileCheck() {
+    let mobileKeyWords = [
+      'Android',
+      'iPhone',
+      'iPod',
+      'BlackBerry',
+      'Windows CE',
+      'SAMSUNG',
+      'LG',
+      'MOT',
+      'SonyEricsson',
+    ];
+    for (let info in mobileKeyWords) {
+      if (navigator.userAgent.match(mobileKeyWords[info]) != null) {
+        return true;
+      }
+    }
+    return false;
+  }
 
   function pageChangeFunc() {
     gradientWrap.style.cssText = `background:linear-gradient(120deg, ${bgArray[pageNum][0]}, ${bgArray[pageNum][1]});

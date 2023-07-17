@@ -4,8 +4,6 @@ body {
 }
 
 .contentWrap {
-  width: 100vw;
-  height: 100vh;
   touch-action: none;
 }
 .contentWrap .gradientWrap {
@@ -25,8 +23,6 @@ body {
   visibility: hidden;
   opacity: 0;
   transition: all 0.4s ease-in-out;
-<<<<<<< HEAD
-=======
 }
 @media only screen and (max-width:720px) {
   .contentWrap .album {
@@ -34,7 +30,6 @@ body {
     width: 300px;
     height: 200px;
   }
->>>>>>> e967714b26f9c621ee117a3575c61d4008ecb406
 }
 .contentWrap .album.active {
   visibility: visible;
