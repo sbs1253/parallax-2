@@ -4,6 +4,8 @@ body {
 }
 
 .contentWrap {
+  width: 100vw;
+  height: 100vh;
   touch-action: none;
 }
 .contentWrap .gradientWrap {
@@ -56,8 +58,8 @@ body {
   box-shadow: 2px 14px 40px rgba(0, 0, 0, 0.3);
 }
 .contentWrap .album .coverImg img {
-  width: inherit !important;
-  height: inherit !important;
+  width: inherit;
+  height: inherit;
 }
 @media only screen and (max-width:720px) {
   .contentWrap .album .coverImg {
@@ -74,7 +76,7 @@ body {
   border-radius: 50%;
   box-shadow: 4px 14px 40px rgba(0, 0, 0, 0.3);
   background: linear-gradient(120deg, #000, #333333, #000);
-  transition: left 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  transition: left 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
   animation: rotateAni 10s ease infinite;
 }
 @media only screen and (max-width:720px) {
@@ -117,15 +119,16 @@ body {
 
 .buttonWrap {
   position: fixed;
-  width: 100%;
   bottom: 5vh;
   text-align: center;
+  width: 100%;
 }
 .buttonWrap button {
   padding: 6px 20px;
   margin: 0 3px;
   background-color: #000;
   color: #fff;
+  transition: all 0.3s ease-out;
 }
 .buttonWrap button:hover {
   background-color: #fff;

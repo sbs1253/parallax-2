@@ -1,8 +1,4 @@
-/* eslint-disable max-len */
-/* eslint-disable no-loop-func */
-/* eslint-disable no-plusplus */
-/* eslint-disable prefer-const */
-/* eslint-disable no-unused-vars */
+/* eslint-disable */
 
 window.onload = () => {
   let prevButton = document.querySelectorAll('button')[0];
@@ -18,7 +14,8 @@ window.onload = () => {
   bgArray[0] = ['#0272a4', '#f6a564'];
   bgArray[1] = ['#b6bfc8', '#36595b'];
   bgArray[2] = ['#e58e82', '#6f569f'];
-
+  let start_X = 0;
+  let end_X = 0;
   function mibileCheck() {
     let mobileKeyWords = [
       'Android',
@@ -31,12 +28,63 @@ window.onload = () => {
       'MOT',
       'SonyEricsson',
     ];
-    for (let info in mobileKeyWords) {
+    // eslint-disable-next-line no-restricted-syntax
+    for (let info of mobileKeyWords) {
       if (navigator.userAgent.match(mobileKeyWords[info]) != null) {
         return true;
       }
     }
     return false;
+  }
+
+  function touchFunc(evt) {
+    let type = null;
+    let touch = null;
+
+    switch (evt.type) {
+      case 'touchstart':
+        type = 'mousedown';
+        touch = evt.changedTouches[0];
+        start_X = touch.clientX;
+        console.log('start_X: ' + start_X);
+        end_X = 0;
+        break;
+
+      case 'touchend':
+        type = 'mouseup';
+        touch = evt.changedTouches[0];
+        end_X = touch.clientX;
+        console.log('end_X : ' + end_X);
+
+        let chkNum = start_X - end_X;
+        let chkNumAbs = Math.abs(chkNum);
+        if (chkNumAbs > 100) {
+          // //터치를 많이 했으면 실행
+          if (chkNum < 0) {
+            //왼쪽으로 터치
+            if (pageNum > 0) {
+              pageNum -= 1;
+            } else {
+              pageNum = totalNum - 1;
+            }
+          } else {
+            if (pageNum < totalNum - 1) {
+              pageNum += 1;
+            } else {
+              pageNum = 0;
+            }
+
+            //오른쪽으로 터치
+          }
+          pageChangeFunc();
+        }
+        break;
+      default:
+    }
+  }
+  if (mibileCheck()) {
+    gradientWrap.addEventListener('touchstart', touchFunc, false);
+    gradientWrap.addEventListener('touchend', touchFunc, false);
   }
 
   function pageChangeFunc() {
@@ -66,7 +114,7 @@ window.onload = () => {
       }
     }
 
-    diskInner[pageNum].style.background = bgArray[pageNum];
+    diskInner[pageNum].style.background = bgArray[pageNum][0];
   }
   // 최초실행
   pageNum = 1;
@@ -103,6 +151,7 @@ window.onload = () => {
     })(i);
   }
 };
+
 // for (let i = 0; i < pointBtnAll.length; i++) {
 //   (() => {})(i);
 // }
