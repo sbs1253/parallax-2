@@ -1,0 +1,57 @@
+section.header {
+  background-color: #000;
+  width: 100vw;
+  height: 160vh;
+}
+section.header div {
+  position: absolute;
+  top: 0;
+  width: inherit;
+  height: inherit;
+}
+section.header div.star_1 {
+  background-image: url("../image/bg.jpg");
+}
+section.header div.star_2 {
+  background-image: url("../image/star.png");
+}
+section.header h1 {
+  position: absolute;
+  top: 30%;
+  left: 30%;
+  color: #fff;
+}
+
+section.card {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  z-index: 1000;
+  background-color: #fff;
+  background: url("../image/bottom.png") no-repeat center center/100%;
+}
+section.card .cardImg {
+  position: relative;
+  display: inline-block;
+  width: 100vw;
+}
+section.card .cardImg li {
+  position: relative;
+  display: inline-block;
+  text-align: center;
+  width: 100px;
+  height: 150px;
+  text-align: center;
+}
+section.card .cardImg li:nth-child(1) {
+  background: linear-gradient(45deg, #f7b733, #fc4a1a);
+}
+section.card .cardImg li:nth-child(2) {
+  background: linear-gradient(45deg, #f7b733, #fc4a1a);
+}
+section.card .cardImg li:nth-child(3) {
+  background: linear-gradient(45deg, #f7b733, #fc4a1a);
+}
+section.card .cardImg li:nth-child(4) {
+  background: linear-gradient(45deg, #f7b733, #fc4a1a);
+}/*# sourceMappingURL=clone.css.map */
