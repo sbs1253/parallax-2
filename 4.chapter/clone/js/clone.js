@@ -2,12 +2,6 @@ window.onload = () => {
   const starBg = document.querySelector('.star_1');
   const titleText = document.querySelector('h1');
   let scrollSpeed;
-  window.addEventListener('scroll', () => {
-    scrollSpeed = this.scrollY;
-    console.log(scrollSpeed);
-    // console.log(document.body.scrollTop);
-    // console.log(document.body.clientHeight);
-  });
 
   function loop() {
     starBg.style.transform = `translateY(${scrollSpeed * 0.3}px)`;
@@ -16,5 +10,12 @@ window.onload = () => {
     // titleText.style.transform = 'translateY(' + scrollSpeed / 1.7 + 'px)';
     requestAnimationFrame(loop);
   }
+  window.addEventListener('scroll', () => {
+    scrollSpeed = this.scrollY;
+    console.log(scrollSpeed);
+    // console.log(document.body.scrollTop);
+    // console.log(document.body.clientHeight);
+  });
+
   loop();
 };
