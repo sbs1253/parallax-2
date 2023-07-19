@@ -1,4 +1,5 @@
 body {
+  font-family: 'Diphylleia', serif;
   width: 100vw !important;
   height: 100vh !important;
   background-image: url('../image/bg.jpg');
@@ -17,10 +18,10 @@ section.header {
     }
   }
   h1 {
+    font-size: 50px;
     position: absolute;
-    top: 50%;
+    top: 40%;
     left: 50%;
-    transform: translate(-50%, -50%);
     color: #fff;
   }
 }
@@ -43,6 +44,7 @@ section.card {
       height: 150px;
       padding: 10px;
       margin: 20px;
+      border-radius: 10px;
       // text-align: center;
       &:nth-child(1) {
         background: linear-gradient(45deg, #f7b733, #fc4a1a);
@@ -57,10 +59,18 @@ section.card {
         background: linear-gradient(45deg, #f7b733, #fc4a1a);
       }
       p {
+        font-weight: bold;
+        color: #fff;
         font-size: 20px;
         padding: 10px;
         border-bottom: 2px dotted #000;
       }
     }
+  }
+  h2 {
+    position: relative;
+    color: #fff;
+    top: 30%;
+    text-align: center;
   }
 }

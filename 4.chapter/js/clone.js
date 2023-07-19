@@ -3,11 +3,18 @@ window.onload = () => {
   const titleText = document.querySelector('h1');
   let scrollSpeed;
   window.addEventListener('scroll', () => {
-    console.log(window.scrollY);
-    scrollSpeed = window.scrollY;
+    scrollSpeed = this.scrollY;
+    console.log(scrollSpeed);
     // console.log(document.body.scrollTop);
     // console.log(document.body.clientHeight);
-    starBg.style.transform = ` translateY(${scrollSpeed * 0.1})`;
-    titleText.style.transform = ` translateY(${scrollSpeed * 0.2})`;
   });
+
+  function loop() {
+    starBg.style.transform = `translateY(${scrollSpeed * 0.3}px)`;
+    titleText.style.transform = `translate(-50%,${scrollSpeed * 0.5}px)`;
+    // starBg.style.transform = 'translateY(' + -scrollSpeed / 3 + 'px)';
+    // titleText.style.transform = 'translateY(' + scrollSpeed / 1.7 + 'px)';
+    requestAnimationFrame(loop);
+  }
+  loop();
 };
