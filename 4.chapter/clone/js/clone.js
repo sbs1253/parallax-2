@@ -12,7 +12,6 @@ window.onload = () => {
   }
   window.addEventListener('scroll', () => {
     scrollSpeed = this.scrollY;
-    console.log(scrollSpeed);
     // console.log(document.body.scrollTop);
     // console.log(document.body.clientHeight);
   });
