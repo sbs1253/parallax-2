@@ -30,6 +30,7 @@ window.onload = function () {
       // 애니메이션 겹칠때 효과제거해줌
     },
     delay: 1.7,
+    // repeat: -1, 무한 반복
     ease: Power4.easeInOut,
   });
 
