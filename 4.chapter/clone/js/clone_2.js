@@ -1,16 +1,16 @@
 /* eslint-disable*/
-
+/* section의 높이가 계속 아래로 늘어남 => top.style.transform이 section 을 변경했기때문 => section->h1 tag scope 로 변경*/
 window.onload = () => {
   let starBg = document.querySelector('.starBg');
-  let title = document.querySelector('.title');
-  let titleText = title.querySelectorAll('div');
+  let top = document.querySelector('.top');
+  let titleText = top.querySelectorAll('div');
   let card = document.querySelector('.card');
   let topBtn = document.querySelector('.topBtn');
   window.addEventListener('scroll', () => {
     const scroll = this.scrollY;
     // console.log(scroll);
     starBg.style.transform = `translateY(${-scroll / 3}px)`;
-    title.style.transform = `translateY(${scroll / 2}px)`;
+    top.style.transform = `translateY(${scroll / 2}px)`;
   });
   for (let text of titleText) {
     // console.log(text);
