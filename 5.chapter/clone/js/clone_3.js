@@ -81,6 +81,8 @@ window.onload = () => {
   for (let i = 0; i < totalItem; i++) {
     item = document.createElement('span');
     item.setAttribute('class', 'item');
+    item.style.top = window.innerHeight / 2 + 'px';
+    item.style.left = window.innerWidth / 2 + 'px';
     item.innerHTML = i;
     section.append(item);
   }
@@ -94,4 +96,4 @@ window.onload = () => {
   });
   resizing();
 };
-//  숫자 위치 함수 완성할것
+//  마우스 위치에 따른 숫자 따라가기
