@@ -26,6 +26,13 @@ window.onload = () => {
   function toggle(idx) {
     btnAll[idx].addEventListener('click', () => {
       pageNum = idx;
+      for (let i = 0; i < btnAll.length; i++) {
+        if (pageNum === i) {
+          btnAll[i].classList.add('active');
+        } else {
+          btnAll[i].classList.remove('active');
+        }
+      }
       setItem();
     });
   }
@@ -35,29 +42,51 @@ window.onload = () => {
     setItem();
   }
   function setItem() {
+    item = document.querySelectorAll('.item');
     body.style.background = `${bgColor[pageNum]}`;
-
     TweenMax.killTweensOf(item);
-    if (pageNum === 0) {
-    } else if (pageNum === 1) {
-    } else if (pageNum === 2) {
+
+    for (let i = 0; i < totalItem; i++) {
+      if (pageNum === 0) {
+        TweenMax.to(item[i], 1, {
+          top: windowHeight / 2 + Math.sin(i / 3) * 30,
+          autoAlpha: 1,
+          left: i * 15,
+          scale: 0.7,
+          delay: i / 100,
+          ease: Power3.easeout,
+        });
+      } else if (pageNum === 1) {
+        TweenMax.to(item[i], 1, {
+          autoAlpha: 1,
+          top: windowHeight / 2 + Math.cos(i / 3) * 30,
+          left: i * 15,
+          delay: 'random(0, 0.5)',
+          scale: 0.7,
+          ease: Power3.easeout,
+        });
+      } else if (pageNum === 2) {
+        TweenMax.to(item[i], 1, {
+          top: windowHeight / 2 + Math.tan(i / 25) * 10,
+          autoAlpha: 1,
+          left: i * 15,
+          delay: 'random(0, 1.5)',
+          scale: 0.7,
+          ease: Power3.easeout,
+        });
+      }
     }
   }
+
   for (let i = 0; i < totalItem; i++) {
     item = document.createElement('span');
     item.setAttribute('class', 'item');
     item.innerHTML = i;
     section.append(item);
   }
+
   for (let i = 0; i < btnAll.length; i++) {
     toggle(i);
-    // 버튼 액티브 지우기
-    if (pageNum === i) {
-      console.log('1');
-      btnAll[i].classList.add('active');
-    } else {
-      btnAll[i].classList.remove('active');
-    }
   }
 
   window.addEventListener('resize', () => {
@@ -65,4 +94,4 @@ window.onload = () => {
   });
   resizing();
 };
-// 버튼 액티브 지우기 만들고 숫자 위치 함수 완성할것
+//  숫자 위치 함수 완성할것

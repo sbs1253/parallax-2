@@ -20,6 +20,7 @@ section {
 section .item {
   position: absolute;
   font-size: 1rem;
+  opacity: 0;
 }
 
 div {
@@ -37,7 +38,7 @@ div button {
   border: 3px solid #979797;
   border-radius: 10px;
 }
-div button:hover, div button:active {
+div button:hover, div button.active {
   color: #fff;
   background: #000;
 }/*# sourceMappingURL=clone-3.css.map */
