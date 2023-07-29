@@ -43,6 +43,8 @@ button.dimd {
   transform: translate(-50%, -50%);
   transform-style: preserve-3d;
   perspective: 800px;
+  visibility: hidden;
+  opacity: 0;
 }
 .contentWrap.active {
   visibility: visible;

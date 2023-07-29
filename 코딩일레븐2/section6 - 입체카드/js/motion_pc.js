@@ -23,7 +23,6 @@ function loop() {
   mx += (x - mx) * 0.1;
   my += (y - my) * 0.1;
   //가속도 설정. 뒤의 값을 변경하면 가속도 값 변경
-
   wrap.style.transform =
     'translate3d(-50%, -50%, 0) rotateX(' +
     my / 10 +

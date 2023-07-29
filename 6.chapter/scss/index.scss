@@ -50,10 +50,8 @@ button {
   transform: translate(-50%, -50%);
   transform-style: preserve-3d;
   perspective: 800px;
-
-  // visibility: hidden;
-  // opacity: 0;
-
+  visibility: hidden;
+  opacity: 0;
   &.active {
     visibility: visible;
     opacity: 1;
