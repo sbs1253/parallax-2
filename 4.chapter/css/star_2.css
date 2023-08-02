@@ -7,6 +7,10 @@ body {
 
 .starBg {
   background: url(../image/star.png);
+  position: fixed;
+  width: 100vw;
+  height: 200vh;
+  top: 0;
 }
 
 section {
@@ -16,7 +20,7 @@ section {
 section.top {
   min-height: 300vh;
 }
-section.top h1.title {
+section h1.title {
   position: relative;
   color: #fff;
   text-align: center;
@@ -24,12 +28,12 @@ section.top h1.title {
   font-size: 40px;
   font-weight: 100;
 }
-section.top h1.title div {
+section h1.title div {
   display: inline-block;
   letter-spacing: -7px;
 }
 section.bottom {
-  background: url(../image/bottom.png) center bottom/100% no-repeat;
+  background: url("../image/bottom.png") center bottom/100% no-repeat;
   min-height: 60vh;
 }
 section.bottom .contWrap {
@@ -43,7 +47,7 @@ section.bottom .contWrap ul li {
   margin: 0 2%;
   width: 130px;
   height: 200px;
-  border-radius: 6px 6px 6px 6px;
+  border-radius: 6px;
   box-sizing: border-box;
   padding: 10px;
   cursor: pointer;
@@ -80,7 +84,7 @@ section.bottom .topBtn {
   bottom: 10%;
   right: 70px;
   padding: 10px;
-  border-radius: 6px 6px 6px 6px;
+  border-radius: 6px;
   background-color: #eee;
   border: 2px solid #eee;
   transition: all 0.3s ease-out;
@@ -89,11 +93,4 @@ section.bottom .topBtn:hover {
   background-color: #000;
   border-color: #333;
   color: #fff;
-}
-
-.starBg {
-  position: fixed;
-  top: 0;
-  width: 100vw;
-  height: 200vh;
-}/*# sourceMappingURL=star_02.css.map */
+}/*# sourceMappingURL=star_2.css.map */
