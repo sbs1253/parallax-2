@@ -1,0 +1,76 @@
+body {
+  font-family: "Diphylleia", serif;
+  width: 100vw !important;
+  height: 100vh !important;
+  background-image: url("../image/bg.jpg");
+}
+
+section.header {
+  width: 100vw;
+  height: 100vh;
+}
+section.header div {
+  position: fixed;
+  top: 0;
+  width: inherit;
+  height: inherit;
+}
+section.header div.star_1 {
+  background-image: url("../image/star.png");
+}
+section.header h1 {
+  font-size: 50px;
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translateX(-50%);
+  color: #fff;
+}
+
+section.card {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  background: url("../image/bottom.png") no-repeat center bottom/100%;
+}
+section.card .cardImg {
+  position: relative;
+  display: inline-block;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+section.card .cardImg li {
+  position: relative;
+  display: inline-block;
+  width: 100px;
+  height: 150px;
+  padding: 10px;
+  margin: 20px;
+  border-radius: 10px;
+}
+section.card .cardImg li:nth-child(1) {
+  background: linear-gradient(45deg, #f7b733, #fc4a1a);
+}
+section.card .cardImg li:nth-child(2) {
+  background: linear-gradient(45deg, #f7b733, #fc4a1a);
+}
+section.card .cardImg li:nth-child(3) {
+  background: linear-gradient(45deg, #f7b733, #fc4a1a);
+}
+section.card .cardImg li:nth-child(4) {
+  background: linear-gradient(45deg, #f7b733, #fc4a1a);
+}
+section.card .cardImg li p {
+  font-weight: bold;
+  color: #fff;
+  font-size: 20px;
+  padding: 10px;
+  border-bottom: 2px dotted #000;
+}
+section.card h2 {
+  position: relative;
+  color: #fff;
+  top: 30%;
+  text-align: center;
+}/*# sourceMappingURL=clone_01.css.map */

@@ -9,6 +9,13 @@ body {
   background: url("../image/star.png");
 }
 
+.starBg {
+  position: fixed;
+  top: 0;
+  width: 100vw;
+  height: 200vh;
+}
+
 section {
   position: relative;
   width: 100vw;
